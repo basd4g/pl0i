@@ -1,0 +1,27 @@
+( INT,    0,    3 ) //作るプログラム int n,s=0; while(n>0){ s+=n; n--; } print(n);
+( LIT,    0,    0 )  // max 以下 LOD,0,3で呼び出し STO,0,3で書き込み
+( LIT,    0,    0 ) // inputed 以下 LOD,0,4で呼び出し STO,0,4で書き込み
+( LIT,    0,    0 ) // ct 以下 LOD,0,5で呼び出し STO,0,5で書き込み
+( LAB,    0,  100 )
+( LOD,    0,    5 )
+( LIT,    0,   10 )
+( OPR,    0,   10 )
+( JPC,    0,  101 ) // !(ct<10)なら101へジャンプ
+( CSP,    0,    0 ) // input
+( STO,    0,    4 )
+( LIT,    0,    1 )
+( LOD,    0,    5 )
+( OPR,    0,    2 )
+( STO,    0,    5 ) //ct=ct+1
+( LOD,    0,    3 ) 
+( LOD,    0,    4 )
+( OPR,    0,   10 ) max<inputed
+( JPC,    0,  100 ) // !(max<inputed)なら100へジャンプ
+( LOD,    0,    4 )
+( STO,    0,    3 )
+( JMP,    0,  100 )
+( LAB,    0,  101 )
+( LOD,    0,    3 )
+( CSP,    0,    1 )
+( CSP,    0,    2 )
+( OPR,    0,    0 )
