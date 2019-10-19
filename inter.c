@@ -105,13 +105,17 @@ mnemonic mntbl[] = { /* table for mnemonic code */
     { "   ", O_BAD }, { "RET", O_RET }
 };
 
-main(){
+main(int arg_c, char *arg_v[]){
   FILE *codef;
   char buf[BSIZE];
-
-  codef = fopen("code.output", "r");
+  
+  if(arg_c<2){
+    printf("need command line argument of file name\n");
+    exit(EXIT_FAILURE);
+  }
+  codef = fopen(arg_v[1], "r");
   if(codef == NULL){
-    perror("code.output");
+    perror(arg_v[1]);
     exit(EXIT_FAILURE);
   }
 
