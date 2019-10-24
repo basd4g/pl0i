@@ -19,8 +19,9 @@ PL0 interpreterはアセンブリを実行することができる仮想マシ�
 ## 実行
 
 ```sh
-% ./pl0i
+% ./pl0i code.output
 # code.output に書かれたアセンブリが実行される
+# 引数にアセンブリのソースファイルへのパスを与える
 ```
 
 ## code.output
