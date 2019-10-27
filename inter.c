@@ -23,6 +23,15 @@ instruction getcode(char* buf);
 
 static void wrcode(int c, instruction c2[]);
 
+mnemonic mntbl[] = { /* table for mnemonic code */
+    { "LIT", O_LIT }, { "OPR", O_OPR },
+    { "LOD", O_LOD }, { "STO", O_STO },
+    { "CAL", O_CAL }, { "INT", O_INT },
+    { "JMP", O_JMP }, { "JPC", O_JPC },
+    { "CSP", O_CSP }, { "LAB", O_LAB },
+    { "   ", O_BAD }, { "RET", O_RET }
+};
+
 void interpreter()        /* interpreter */
 {
     int tmp;
@@ -36,6 +45,13 @@ void interpreter()        /* interpreter */
     do {
         i = code[p++]; /* get an instruction */
 	f = i.f;  l = i.l;  a = i.a;
+
+    printf("t:%d, b:%d, p:%d, i:(%s, %d, %d)\n[",t,b,p,mntbl[(int)(i.f)].sym,i.l,i.a);
+  for(int k=0;k<20;k++){printf("%d,",s[k]);}
+  printf("]\n");
+  scanf("%d",&tmp);
+  if(tmp!=0)return;
+  
 	switch( f ) { /* switch by op-code */
 	case O_LIT : s[++t] = a;  break;
 	case O_OPR : 
@@ -96,14 +112,6 @@ int base( l ) /* trace static link l times, where l is the difference */
     return b1;
 }
 
-mnemonic mntbl[] = { /* table for mnemonic code */
-    { "LIT", O_LIT }, { "OPR", O_OPR },
-    { "LOD", O_LOD }, { "STO", O_STO },
-    { "CAL", O_CAL }, { "INT", O_INT },
-    { "JMP", O_JMP }, { "JPC", O_JPC },
-    { "CSP", O_CSP }, { "LAB", O_LAB },
-    { "   ", O_BAD }, { "RET", O_RET }
-};
 
 main(int arg_c, char *arg_v[]){
   FILE *codef;
