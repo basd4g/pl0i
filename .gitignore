@@ -1,2 +1,5 @@
-*o
+*.o
 pl0i
+*.out
+test/testfile1.txt
+test/testfile2.txt
