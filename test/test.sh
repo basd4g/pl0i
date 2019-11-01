@@ -7,6 +7,6 @@ if ! diff testfile1.txt testfile2.txt > /dev/null ; then
 	echo "$1.output, <$2> is error"
 	exit 1
 fi
+rm testfile1.txt testfile2.txt $1.out 
 exit 0
-rm testfile1.txt testfile2.txt a.out -f
 
