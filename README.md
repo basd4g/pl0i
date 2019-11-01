@@ -23,7 +23,27 @@ PL0 interpreterはアセンブリを実行することができる仮想マシ�
 # 引数にアセンブリのソースファイルへのパスを与えると、pl0iが実行する
 ```
 
-## 用意されたアセンブリプログラム
+## アセンブリプログラム
 
-code.output.org ... 階乗を計算するプログラム
-ex/* ... [ex/excersize.md](ex/excersize.md)に記載のプログラムが存在する
+`code.output.org` ... 階乗を計算するプログラム
+`ex/*` ... [ex/excersize.md](ex/excersize.md)に記載のプログラムが存在する
+
+## テスト
+
+各ファイルの説明
+
+`test/`以下にテストに関するファイルが存在する
+
+- `test/xx.c`(xx ... 1から13) ... `ex/xx.output`(xx...1から13)と同様の入出力を実装したCのソースコード
+- `test/test.sh` ... 一つの`.output`ファイルをテストするプログラム
+- `test/tests.sh` ... test.shを`1.output`から`13.output`までについて実行する
+
+テストの実行
+
+```
+% git clone https://github.com/basd4g/pl0i.git
+% cd pl0i/test
+% ./tests.sh
+```
+
+
